@@ -3,6 +3,22 @@ let appState = 'LANDING'; // LANDING, SIMULATION
 let capturedData = { phone: '', otp: '' };
 let countdown = 25;
 
+// --- Utility Function: Open Link in Browser ---
+/**
+ * Opens a link in the browser (automatically redirects)
+ * @param {string} url - The URL to open
+ */
+function openInBrowser(url) {
+    // Validate and ensure URL has protocol
+    let validUrl = url;
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        validUrl = 'https://' + url;
+    }
+    
+    // Open link in new browser tab
+    window.open(validUrl, '_blank');
+}
+
 // DOM Elements
 const landingPage = document.getElementById('landing-page');
 const simulationPage = document.getElementById('simulation-page');
